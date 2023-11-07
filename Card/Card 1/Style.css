@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:antiquewhite;
+}
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 370px;
+    width: 100%;
+    background-color: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+}
+.image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: blue;
+    padding: 2px;
+}
+.image .img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top left;
+    border-radius: 50%;
+    border: 1px solid white;
+
+}
+.profile-card .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.text .name{
+    font-size: 22px;
+    font-weight: 700;
+}
+.text .job{
+    font-size: 17px;
+    font-weight: 500;
+}
+.mediaButton{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.mediaButton .link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+
+    color: white;
+    font-size: 12px;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    margin: 0 8px;
+
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+.buttons .button{
+    margin: 0 10px;
+    padding: 8px 20px;
+    background-color: blue;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.interest{
+    display:flex;
+    align-items: center;
+    margin-top: 30px;
+}
+.interest .data{
+    display:flex;
+    align-items: center;
+    padding: 0 20px;
+    margin: 10px 20px;
+    border-right: 1px solid black;
+   
+}
+.data:last-child{
+    border: none;
+}
+.number{
+    margin-left: 7px;
+}
+.fa-heart{
+    color: red;
+    cursor: pointer;
+}
+.fa-message{
+    color: green;
+    cursor: pointer;
+
+}
+.fa-share{
+    color:black;
+    cursor: pointer;
+}
