@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar to Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        #sidebar {
+            min-height: 100vh;
+            background-color: #e9ecef; /* Lighter color for sidebar */
+            color: #000; /* Changed text color to black for better readability */
+            padding-top: 20px;
+            transition: all 0.3s;
+        }
+
+        #sidebar .nav-link {
+            color: #495057;
+            transition: all 0.3s;
+        }
+
+        #sidebar .nav-link:hover,
+        #sidebar .nav-link.active {
+            color: #fff;
+            background-color: #6c757d; /* Dark color for active/hovered links */
+        }
+
+        #sidebar .nested-nav .nav-link {
+            padding-left: 30px;
+        }
+
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                display: none;
+            }
+
+            #topNavbar {
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            #sidebar {
+                display: block;
+            }
+
+            #topNavbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center" href="#" data-bs-toggle="collapse" data-bs-target="#ordersMenu" aria-expanded="false" aria-controls="ordersMenu">
+                                <span>
+                                    <i class="fas fa-box"></i> Orders
+                                </span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="collapse nested-nav" id="ordersMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">New Orders</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Processed Orders</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-cube"></i> Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#customersMenu" aria-expanded="false" aria-controls="customersMenu">
+                                <i class="fas fa-users"></i> Customers
+                            </a>
+                            <div class="collapse nested-nav" id="customersMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">New Customers</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Loyal Customers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-chart-bar"></i> Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-cogs"></i> Integrations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Mobile Navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark d-md-none" id="topNavbar">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileOrdersMenu" aria-expanded="false" aria-controls="mobileOrdersMenu">
+                                    <i class="fas fa-box"></i> Orders
+                                </a>
+                                <div class="collapse" id="mobileOrdersMenu">
+                                    <ul class="navbar-nav ms-3">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">New Orders</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Processed Orders</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-cube"></i> Products
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#mobileCustomersMenu" aria-expanded="false" aria-controls="mobileCustomersMenu">
+                                    <i class="fas fa-users"></i> Customers
+                                </a>
+                                <div class="collapse" id="mobileCustomersMenu">
+                                    <ul class="navbar-nav ms-3">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">New Customers</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Loyal Customers</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-chart-bar"></i> Reports
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-cogs"></i> Integrations
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                </div>
+                <p>Welcome to the main content area.</p>
+            </main>
+        </div>
+    
+                    </div>
+                
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
+        
